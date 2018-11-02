@@ -7,12 +7,31 @@
             var canvas = document.getElementById("canvas");
             var robotArm = new RobotArm(canvas);
             
+            
             // Het level inladen
-            robotArm.loadLevel("exercise 13");
+            robotArm.randomLevel(1, 8);
             robotArm.speed = 500;
             
             // Jou instructies volgen hier
-
+            robotArm.grab();
+            var x = 9;
+            var y = 9;
+            var color = robotArm.scan();
+            while (color !== null) {
+                robotArm.grab();
+                color = robotArm.scan();
+                if (color !== null) {
+                    for (var i = 0; i < x; i++) {
+                    robotArm.moveRight();
+            }
+                x--;
+                robotArm.drop();
+                for (var j = 0; j < y; j++) {
+                    robotArm.moveLeft();
+            }
+                y--;
+        }
+    }
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>

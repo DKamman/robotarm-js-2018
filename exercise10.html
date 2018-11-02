@@ -12,7 +12,17 @@
             robotArm.speed = 500;
             
             // Jou instructies volgen hier
-
+            for (main=9; main>0; main--){
+                robotArm.grab()
+            for (ex3=1; ex3<=main; ex3++){
+               robotArm.moveRight()
+           }
+            robotArm.drop()
+            main--;
+            for (ex3=1; ex3<=main; ex3++){
+                robotArm.moveLeft()
+            }
+        }
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
